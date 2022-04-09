@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { WorkList, WorkContent } from "components";
-import {NextSeo} from "next-seo"
-import {getAllPosts, getPostBySlug} from "pages/api/projects";
+import { NextSeo } from "next-seo";
+import { getAllPosts, getPostBySlug } from "pages/api/projects";
 import md2html from "lib/md2html";
 
 export default function Post({ allPosts, post }) {
@@ -14,16 +14,19 @@ export default function Post({ allPosts, post }) {
   return (
     <div className="flex w-full">
       <NextSeo
-        title={`${post.title} - Rishi Mohan`}
-        description={post.content.slice(0, 200)?.replace(/<[^>]*>?/gm, '') || ""}
+        title={`${post.title} - Sreehari Jayaraj`}
+        description={
+          post.content.slice(0, 200)?.replace(/<[^>]*>?/gm, "") || ""
+        }
         openGraph={{
-          site_name: `${post.title} - Rishi Mohan`,
-          title: `${post.title} - Rishi Mohan`,
-          description: post.content.slice(0, 200)?.replace(/<[^>]*>?/gm, '') || "",
+          site_name: `${post.title} - Sreehari Jayaraj`,
+          title: `${post.title} - Sreehari Jayaraj`,
+          description:
+            post.content.slice(0, 200)?.replace(/<[^>]*>?/gm, "") || "",
         }}
         twitter={{
-          handle: "@thelifeofrishi",
-          site: "@thelifeofrishi",
+          handle: "@sreeharijayara2",
+          site: "@sreeharijayara2",
           cardType: "summary_large_image",
         }}
       />
@@ -43,7 +46,7 @@ export async function getStaticProps({ params }) {
     "excerpt",
     "content",
     "link",
-    "icon"
+    "icon",
   ]);
 
   const post = getPostBySlug(params.slug, [
@@ -57,7 +60,7 @@ export async function getStaticProps({ params }) {
     "tech",
     "web",
     "ios",
-    "icon"
+    "icon",
   ]);
 
   const content = await md2html(post.content || post.excerpt || "");

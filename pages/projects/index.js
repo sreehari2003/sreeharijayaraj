@@ -1,18 +1,18 @@
-import {NextSeo} from "next-seo";
-import {WorkList} from "components";
+import { NextSeo } from "next-seo";
+import { WorkList } from "components";
 import { getAllPosts } from "pages/api/projects";
 
-export default function Home({allPosts}) {
+export default function Home({ allPosts }) {
   return (
     <>
       <NextSeo
-        title="Work – Rishi Mohan"
-        description="A list of all my side-projects, mostly written in React.js, React Native, Next.js and TailwindCSS."
+        title="Work – Sreehari jayaraj"
+        description="A list of all my side-projects, mostly written in React.js,express js,mongodb , Next.js, Material UI and Typescript."
         openGraph={{
-          site_name: "Work – Rishi Mohan",
-          title: "Work – Rishi Mohan",
+          site_name: "Work – Sreehari jayaraj",
+          title: "Work – sreehari jayaraj",
           description:
-            "A list of all my side-projects, mostly written in React.js, React Native, Next.js and TailwindCSS.",
+            "A list of all my side-projects, mostly written inReact.js,express js,mongodb , Next.js, Material UI and Typescript.",
         }}
         twitter={{
           handle: "@thelifeofrishi",

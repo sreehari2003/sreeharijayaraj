@@ -1,25 +1,21 @@
-import {useState} from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import {
   HomeIcon,
-  BlogIcon,
-  TravelIcon,
   SideProjectsIcon,
   TwitterIcon,
   InstagramIcon,
   ExternalLinkIcon,
   EmailIcon,
-  ExperimentsIcon,
 } from "lib/icons";
 import classnames from "classnames";
 import { useTheme } from "next-themes";
 
-
 export default function Sidebar() {
   const { pathname } = useRouter();
   const [mobileNav, showMobileNav] = useState(false);
-  const {theme, setTheme} = useTheme();
+  const { theme, setTheme } = useTheme();
 
   const LINKS = [
     {
@@ -29,72 +25,57 @@ export default function Sidebar() {
       active: pathname === "/",
     },
     {
-      title: "Blog",
-      url: "/blog",
-      icon: BlogIcon,
-      active: pathname.includes("/blog"),
-    },
-    {
       title: "Side Projects",
       url: "/projects",
       icon: SideProjectsIcon,
       active: pathname.includes("/projects"),
-    },
-    {
-      title: "Experiments",
-      url: "/experiments",
-      icon: ExperimentsIcon,
-      active: pathname.includes("/experiments"),
-    },
-    {
-      title: "Travel Map",
-      url: "/map",
-      icon: TravelIcon,
-      active: pathname === "/map",
     },
   ];
 
   const SOCIAL = [
     {
       title: "Twitter",
-      url: `https://twitter.com/${process.env.twitter}`,
+      url: `https://twitter.com/sreeharijayara2`,
       icon: TwitterIcon,
       external: true,
     },
     {
       title: "Instagram",
-      url: `https://instagram.com/${process.env.instagram}`,
+      url: `https://www.instagram.com/sreehari_jayaraj__/`,
       icon: InstagramIcon,
       external: true,
     },
     {
+      title: "Github",
+      url: "https://github.com/sreehari2003",
+      external: true,
+    },
+    {
       title: "Email",
-      url: `mailto:iamrishi.ms@gmail.com`,
+      url: `mailto:sreeharijayaraj03@gmail.com `,
       icon: EmailIcon,
       external: false,
     },
   ];
 
   const renderLinks = () => {
-    return (
-      LINKS.map((link) => (
-        <div className="px-4" key={link.title}>
-          <Link href={link.url}>
-            <a
-              className={classnames(
-                "flex items-center w-full px-4 py-[5px] mb-2 transition-all duration-150 ease-in-out rounded-lg dark:hover:bg-black",
-                { "bg-black text-white": link?.active },
-                { "hover:bg-gray-100": !link?.active }
-              )}
-            >
-              <span className="w-5 h-5 min-w-[40px]">{link?.icon}</span>
-              <span>{link?.title}</span>
-            </a>
-          </Link>
-        </div>
-      ))    
-    )
-  }
+    return LINKS.map((link) => (
+      <div className="px-4" key={link.title}>
+        <Link href={link.url}>
+          <a
+            className={classnames(
+              "flex items-center w-full px-4 py-[5px] mb-2 transition-all duration-150 ease-in-out rounded-lg dark:hover:bg-black",
+              { "bg-black text-white": link?.active },
+              { "hover:bg-gray-100": !link?.active }
+            )}
+          >
+            <span className="w-5 h-5 min-w-[40px]">{link?.icon}</span>
+            <span>{link?.title}</span>
+          </a>
+        </Link>
+      </div>
+    ));
+  };
 
   const renderSocials = () => {
     return (
@@ -111,7 +92,7 @@ export default function Sidebar() {
                 )}
                 target={link?.external ? "_blank" : undefined}
               >
-                <span className="w-5 h-5 min-w-[40px]">{link?.icon}</span>
+                {/* <span className="w-5 h-5 min-w-[40px]">{link?.icon}</span> */}
                 <span>{link?.title}</span>
                 {link?.external ? (
                   <span className="w-4 h-4 ml-auto text-gray-400 dark:text-gray-600">
@@ -126,10 +107,10 @@ export default function Sidebar() {
         ))}
       </>
     );
-  }
+  };
 
   const renderPrefs = () => {
-    return (theme ? 
+    return theme ? (
       <>
         <h4 className="px-10 mt-4 mb-2 text-gray-400">Theme</h4>
         <div className="px-2 py-1 mx-6 dark:bg-[#111] border border-gray-200 rounded-lg cursor-pointer dark:border-gray-800">
@@ -145,8 +126,10 @@ export default function Sidebar() {
           </select>
         </div>
       </>
-    : "");
-  }
+    ) : (
+      ""
+    );
+  };
 
   return (
     <>

@@ -1,11 +1,11 @@
-import { ThemeProvider } from 'next-themes'
+import { ThemeProvider } from "next-themes";
 import "styles/app.scss";
 import "styles/blog.scss";
 import MainLayout from "layouts/main";
 import WithoutSidebar from "layouts/withoutSidebar";
-import {DefaultSeo} from "next-seo";
+import { DefaultSeo } from "next-seo";
 import Script from "next/script";
-import {useRouter} from "next/router";
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -17,14 +17,13 @@ function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider defaultTheme="system" attribute="class" enableSystem={true}>
       <DefaultSeo
-        title="Hi, I'm Rishi Mohan!"
-        description="I'm a designer and front-end engineer by profession. I build SaaS apps, like to travel, take photos and binge try Cafes and Restaurants."
+        title="Hi, I'm sreehari jayaraj!"
+        description="I'm a Full-stack developer who loves tech and startup."
         canonical={canonicalUrl}
         openGraph={{
-          site_name: "Hi, I'm Rishi Mohan!",
-          title: "Hi, I'm Rishi Mohan!",
-          description:
-            "I'm a designer and front-end engineer by profession. I build SaaS apps, like to travel, take photos and binge try Cafes and Restaurants.",
+          site_name: "Hi, I'm Sreehari jayaraj!",
+          title: "Hi, I'm Sreehari jayaraj!",
+          description: "I'm a Full-stack developer who loves tech and startup.",
           images: [
             {
               url: "https://rishimohan.vercel.app/images/site/meta.jpg",
